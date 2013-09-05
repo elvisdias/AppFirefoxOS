@@ -1,0 +1,18 @@
+{
+    "version": "1",
+    "name": "Artists",
+        "description": "",
+    "launch_path": "art.html", 
+    "developer": {
+        "name": "Elvis",
+        "url": "http://ifrn.edu.br"
+    },
+    "installs_allowed_from": ["*"],
+	    "default_locale": "en",
+    "permissions": {
+        "desktop-notification": {
+            "description" : "To show notifications"
+        }
+        }
+    }
+
