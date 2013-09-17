@@ -1,6 +1,6 @@
 {
     "version": "1",
-    "name": "Main",
+    "name": "nonameyet",
         "description": "",
     "launch_path": "main.html", 
     "developer": {
@@ -14,5 +14,5 @@
             "description" : "To show notifications"
         }
         }
-	}
+    }
 
