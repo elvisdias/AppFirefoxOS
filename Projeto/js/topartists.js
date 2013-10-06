@@ -7,12 +7,11 @@ var lastfm = new LastFM({
 });
 
 
-jQuery(document).ready(function(){
-
-    getTopArtists('reidoindie', 10);    
+$(document).ready(function(){
+    
+    getTopArtists(localStorage.getItem("key"), 10);    
        
 });
-
 
 function getTopArtists(user, limit){
    
@@ -22,23 +21,24 @@ function getTopArtists(user, limit){
     },
     {
         success: function(data) {
-            // Create HTML to append to the #topartists element :
+            
             var list = '<ol>';
             for (var i = 0; i < data.topartists.artist.length; i++) {
-                // Append new element to "#topartists"
-                list += "<div style='background-color: white; height: 30px; width: 350; border-top: 1px solid gray; position: relative; top: -20px; left: -40px; '>" + data.topartists.artist[i].name + "<img src='pics/-.png' style='position: absolute; left: 260px; top: 10px;'>"  + "</div>";
+                
+                list += "<div style='background-color: white; border-radius: 4px;  height: 30px; width: 290; border-top: 6px solid #CD2626; position: relative; top: -20px; left: -40px; '>" + data.topartists.artist[i].name + "<img src='pics/-.png' style='position: absolute; left: 260px; top: 10px;'>"  + "</div>";
                 }
 
 
             jQuery(list + '</ol>').appendTo('#topartists');
         },
         error: function(data) {
-            // Show error message.
-            alert(data.error + " " + data.message);
+           alert(data.error + " " + data.message);
         }
     });
     
 }
-$("").on("click",function(){
-  $().fadeOut("fast");
+ $(document).ready(function(){
+$("img").click(function() {
+$(this).fadeTo("fast", 0.5);
+});
 });

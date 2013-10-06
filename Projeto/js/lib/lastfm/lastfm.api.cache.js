@@ -12,8 +12,7 @@ Storage.prototype.setObject = function(key, value){
 /* Get an object from a Storage object. */
 Storage.prototype.getObject = function(key){
 	var item = this.getItem(key);
-
-	return JSON.parse(item);
+	return item && JSON.parse(item);
 }
 
 /* Creates a new cache object. */

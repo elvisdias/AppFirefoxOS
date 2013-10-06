@@ -1,0 +1,7 @@
+/* if (window.localStorage) {
+		    localStorage.setItem(lastfm, user);
+	    } */
+
+//var lastfm = window.localStorage.key(0);
+
+//localStorage.getItem("lastfm")

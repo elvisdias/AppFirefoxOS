@@ -1,35 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 	<head>
 	<title>Main</title>
 	<link rel="stylesheet" href="css/css.css">
 	<link rel="stylesheet" href="css/fonts.css">
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/lib/jquery/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="js/lib/lastfm/lastfm.api.cache.js"></script>
     <script type="text/javascript" src="js/lib/lastfm/lastfm.api.js"></script>
     <script type="text/javascript" src="js/lib/lastfm/lastfm.api.md5.js"></script>    
-    <script type="text/javascript" src="js/topartists.js"></script>  
-       
-       </head>
+           
+    <script type="text/javascript">
+
+    function valida() {
+    	
+    	var user = document.enter.user.value;
+    	if (user == "") {
+    		alert("Informe usuário!");
+    		enter.user.focus();
+    		return false;
+    	} else {    		
+		    if (window.localStorage) {
+		   //var key = window.localStorage.key(0);
+		    localStorage.setItem("key", user);
+	    } 
+	    	location.href='list.html';
+    	};
+
+    }
     
+    </script>
 
-	
-		<body style='background-color:#CCC'>
+    </head>    
+		<body style='background-color: #CD2626;'>
 
-
-		<div class='pos'>	
-			<h3> &nbsp; &nbsp; Usu�rio Last.fm</h3>
-	
+		<div class='titulo'> Usuário Last.fm </div>	
+		<div class='pos'>
 			<form name='enter'>       
-				<input  type="text" id='user' size=25>	  
+				<input  type="text" name='user' id='user'>	  
+				<button type="button" class='enter' id='ent' onClick="return valida()">enter</button>		
 			</form>	
-		</div>
-
-
-		<button type='button' class='enter' id="but" onClick="location.href='list.html'">enter</button>
+		</div>	
 		
+
 		</body>
 </html>
