@@ -21,11 +21,12 @@ function getTopArtists(user, limit){
     },
     {
         success: function(data) {
-            
+            var img =  0;
+            var div = 0;
             var list = '<ol>';
             for (var i = 0; i < data.topartists.artist.length; i++) {
                 
-                list += "<div style='background-color: white; border-radius: 4px;  height: 30px; width: 290; border-top: 6px solid #CD2626; position: relative; top: -20px; left: -40px; '>" + data.topartists.artist[i].name + "<img src='pics/-.png' style='position: absolute; left: 260px; top: 10px;'>"  + "</div>";
+                list += "<div class='dive' id='" + (div+i) + "'>" + data.topartists.artist[i].name + "<img src='pics/-.png' class='minus' id='" + (img+i) + "'>"  + "</div>";
                 }
 
 
@@ -37,8 +38,24 @@ function getTopArtists(user, limit){
     });
     
 }
- $(document).ready(function(){
-$("img").click(function() {
-$(this).fadeTo("fast", 0.5);
-});
-});
+var img= [0,1,2,3,4,5,6,7,8,9];
+
+$(document).ready(function(){
+$.each( img, function(){ 
+    $("#" + this).bind("click", function() {
+    $('div').fadeTo("fast", 0.5);
+})
+})
+}); 
+    
+   
+    
+/*
+function novo() {
+    var div = document.createElement('div');
+        div.innerHTML = document.form.nome.value;
+        div.style.backgroundColor="black";
+        var newContent = document.createTextNode(document.form.nome.value);
+       // div.setAttribute('class', 'diven'); 
+
+}*/

@@ -87,28 +87,6 @@ a[role="button"],
 
 }
 
-.art {
-   height: 45px;
-   width: 265;
-   background-color: white;
-   position: fixed;
-   top: 110px;
-   left: 0px;
-   border: 1px solid black;
-   border-radius: 0.3rem;
-
-}
-.art2 {
-   height: 45px;
-   width: 265;
-   background-color: white;
-   position: fixed;
-   top: 50px;
-   left: 0px;
-   border: 1px solid black;
-   border-radius: 0.3rem;
-   }
-
 .searchb {
   position: fixed;
   top: 60px;
@@ -127,28 +105,37 @@ a[role="button"],
   font-size: 20px;
 }
 
-.info {
+.dive{
+  background-color: white;
+  border-radius: 4px; 
+  height: 27px;
+  width: 290;
+  border-top: 6px solid #CD2626;
   position: relative;
-  top: -33px;
-  left: 50px;
+  top: -20px;
+  left: -40px;
+}
+.diven{
+  background-color: white;
+  border-radius: 4px; 
+  height: 30px;
+  width: 290;
+  border-top: 6px solid #CD2626;
+  position: fixed;
+  top: 250px;
+  left: -40px;
 }
 
-.noadd{
- position: fixed;
- top: 65px;
- left: 275px;
-}
-
-.noadd2{
- position: fixed;
- top: 125px;
- left: 275px;
+.minus {
+position: absolute; 
+left: 260px; 
+top: 10px;
 }
 
 .done {
   position: fixed;
   left: 250px;
-  top: 445px;  
+  top: 438px;  
   width: 45px;
   height: 25px;
 }
