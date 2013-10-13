@@ -26,7 +26,7 @@ function getTopArtists(user, limit){
             var list = '<ol>';
             for (var i = 0; i < data.topartists.artist.length; i++) {
                 
-                list += "<div class='dive' id='" + (div+i) + "'>" + data.topartists.artist[i].name + "<img src='pics/-.png' class='minus' id='" + (img+i) + "'>"  + "</div>";
+                list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id);change(this.id)' class='minus'>"  + "</div>";
                 }
 
 
@@ -38,17 +38,30 @@ function getTopArtists(user, limit){
     });
     
 }
-var img= [0,1,2,3,4,5,6,7,8,9];
 
-$(document).ready(function(){
-$.each( img, function(){ 
-    $("#" + this).bind("click", function() {
-    $('div').fadeTo("fast", 0.5);
-})
-})
-}); 
+
+function fade(id) {
     
-   
+    var element = document.getElementById(id);
+
+    $(document).ready(function(){        
+        $(element).fadeTo("fast", 0.5);
+        
+    });
+
+}
+
+function change(id) {
+ //var element = document.getElementById(id);
+ if("<img src=pics/-.png>"){
+     
+     document.getElementById(id).src="pics/+.gif";     
+    }else{
+     document.getElementById(id).src="pics/-.png";   
+    }
+}
+
+
     
 /*
 function novo() {

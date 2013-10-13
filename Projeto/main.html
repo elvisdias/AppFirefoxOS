@@ -11,6 +11,9 @@
 	<script type="text/javascript" src="js/lib/lastfm/lastfm.api.cache.js"></script>
     <script type="text/javascript" src="js/lib/lastfm/lastfm.api.js"></script>
     <script type="text/javascript" src="js/lib/lastfm/lastfm.api.md5.js"></script>    
+
+    <link href="css/transition.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="js/lib/fasw.transitions.min.js"></script>
            
     <script type="text/javascript">
 
@@ -23,14 +26,30 @@
     		return false;
     	} else {    		
 		    if (window.localStorage) {
-		   //var key = window.localStorage.key(0);
 		    localStorage.setItem("key", user);
 	    } 
 	    	location.href='list.html';
     	};
 
     }
-    
+/*
+(function inittrans() 
+{
+	var params =	//All params are optional, you can just assign {} 
+		{ 
+			"navB" : "slide reverse",	//Effect for navigation button, leave it empty to disable it
+			"but" : true,				//Flag to enable transitions on button, false by default
+			"cBa" : onTransitionFinished // function() { alert("Done!"); }	//callback function
+		};
+	new ft(params);
+})();
+
+function onTransitionFinished()
+{
+	//Do anything you want 
+}
+*/
+
     </script>
 
     </head>    
@@ -40,7 +59,8 @@
 		<div class='pos'>
 			<form name='enter'>       
 				<input  type="text" name='user' id='user'>	  
-				<button type="button" class='enter' id='ent' onClick="return valida()">enter</button>		
+				<button type="button" class='enter' id='but' data-ftrans="slide" data-href="list.html" onClick="return valida()">enter</button>		
+
 			</form>	
 		</div>	
 		
