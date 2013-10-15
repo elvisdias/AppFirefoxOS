@@ -28,9 +28,8 @@ function getTopArtists(user, limit){
                 
                 list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id);change(this.id)' class='minus'>"  + "</div>";
                 }
-
-
-            jQuery(list + '</ol>').appendTo('#topartists');
+         jQuery(list + '</ol>').appendTo('#topartists');
+         $('.loading').fadeOut();
         },
         error: function(data) {
            alert(data.error + " " + data.message);
