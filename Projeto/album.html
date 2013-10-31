@@ -1,20 +1,23 @@
 <html>
 	<head>
-	<link rel='stylesheet' href='css/fonts.css'>
-	<link rel='stylesheet' href='css/css.css'>
-
+	
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/css.css">	
+	
 	<script type="text/javascript" src="js/lib/jquery/jquery-1.8.3.js"></script>
-	<script type="text/javascript" src="js/jsrender.js"></script>
 	<script type="text/javascript" src="js/lib/lastfm/lastfm.api.cache.js"></script>
     <script type="text/javascript" src="js/lib/lastfm/lastfm.api.js"></script>
     <script type="text/javascript" src="js/lib/lastfm/lastfm.api.md5.js"></script>    
-    <script type="text/javascript" src="js/topalbums.js"></script>
-	
+    <script type="text/javascript" src="js/albuminfo.js"></script>
+   
+	<title>Album</title>	
+
 	</head>
 	
 	<body style='background-color: #CD2626;'>
 
-		<div class="loading">
+
+	<div class="loading">
     <!-- We make this div spin -->
     <div class="spinner">
         <!-- Mask of the quarter of circle -->
@@ -25,18 +28,12 @@
     </div>
 </div>
 		
-		<div class='board'> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;  Notifications
-		<img class='home' id='house' src='pics/home.png'>
-		</div>
-		<div id='home'>
-		<div class='menu'>notifications</div>
-		<div class='menu'>Artists</div>
-		
-		</div>
+		<div class='board'> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; Artists </div>
 		</br>
 		
-		<div id='topalbums'></div>
+		<div id="albuminfo">  </div>
+			
+		<button type="button" class='back' id='but' onClick="location.href='home.html'">Back</button>
 		
 	</body>
-	
 </html>

@@ -23,14 +23,20 @@ function getTopArtists(user, limit){
         success: function(data) {
             var img =  0;
             var div = 0;
+            
             var list = '<ol>';
             for (var i = 0; i < data.topartists.artist.length; i++) {
                 
-                list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id);change(this.id)' class='minus'>"  + "</div>";
+                list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>"  + "</div>";
+                
+                var artist = data.topartists.artist[i].name;
+                localStorage.setItem('artist'+i, artist);
+                
                 }
          jQuery(list + '</ol>').appendTo('#topartists');
          $('.loading').fadeOut();
         },
+        
         error: function(data) {
            alert(data.error + " " + data.message);
         }
@@ -45,22 +51,21 @@ function fade(id) {
 
     $(document).ready(function(){        
         $(element).fadeTo("fast", 0.5);
-        
+        localStorage.removeItem('artist'+id);
     });
 
 }
 
-function change(id) {
- //var element = document.getElementById(id);
- if("<img src=pics/-.png>"){
-     
-     document.getElementById(id).src="pics/+.gif";     
+/*function change(id) {
+
+ if(document.getElementById(id).value == "pics/-.png"){
+    document.getElementById(id).src="pics/+.gif";     
     }else{
      document.getElementById(id).src="pics/-.png";   
     }
 }
 
-
+*/
     
 /*
 function novo() {

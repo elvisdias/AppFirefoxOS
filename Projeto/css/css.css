@@ -160,7 +160,7 @@ a[role="button"],
   top: -20px;
   left: -40px;
 }
-.diven{
+/*.diven{
   background-color: white;
   border-radius: 4px; 
   height: 30px;
@@ -169,7 +169,7 @@ a[role="button"],
   position: fixed;
   top: 250px;
   left: -40px;
-}
+}*/
 
 .minus {
 position: absolute; 
@@ -180,38 +180,38 @@ top: 10px;
 .done {
   position: fixed;
   left: 250px;
-  top: 438px;  
+  top: 430px;  
   width: 45px;
   height: 25px;
 }
 
 /*  HOME  */
 
- .not {
-   height: 50px;
-   width: 100%;
-   background-color: white;
-   position: fixed;
-   top: 110px;
-   left: 0px;
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
-   
+.dive2{
+  background-color: white;
+  border-radius: 4px; 
+  height: 35px;
+  width: 290;
+  border-top: 6px solid #CD2626;
+  position: relative;
+  top: -20px;
+  left: -40px;
+}
+.home {
+  position: fixed;
+  left: 18px;
+  top: 8px;
+
 }
 
-  div p {
-    position: absolute;
-    top: -10;
-    left: 55px;
-  }
-
-
-.back {
-  position: fixed;
-  left: 17px;
-  top: 16px;
-  height: 23;
-  width: 50;
+#home {
+  height: 400px;
+  width: 275px;
+  background-color: #EE2C2C;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  
 }
 
 
