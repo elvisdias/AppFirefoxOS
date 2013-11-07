@@ -159,6 +159,7 @@ a[role="button"],
   position: relative;
   top: -20px;
   left: -40px;
+  text-transform: capitalize;
 }
 /*.diven{
   background-color: white;
@@ -214,8 +215,14 @@ top: 10px;
   
 }
 
-
 /*  ARTISTS  */
+
+.artists {
+  position: fixed;
+  top: 115px;
+}
+
+/*  ARTIST  */
 
 amazon, itunes {
 font-size: 5px;

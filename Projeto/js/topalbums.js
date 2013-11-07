@@ -5,11 +5,42 @@ var lastfm = new LastFM({
     apiSecret : '4e80f575b0ccff9c5f4b1161c67618e1',
     cache     : cache
 });
+/*$(document).ready(function(){
+    
+    getNewReleases('reidoindie',1);    
+       
+});
 
+function getNewReleases(user,userecs){
+   
+    lastfm.user.getNewReleases({
+        user: user,
+        userecs : userecs
+    },
+    {
+        success: function(data) {
+            var list = '<ol>';
+            
+                
+                list += data.getNewReleases.name;
+
+                
+                
+
+         jQuery(list + '</ol>').appendTo('#topalbums');
+         $('.loading').fadeOut();
+        },
+        
+        error: function(data) {
+           alert(data.error + " " + data.message);
+        }
+    });
+    
+}*/
 
 $(document).ready(function(){
     for (var i = 0; i < 10; i++) {
-    getTopAlbums(localStorage.getItem("artist"+i), 10);    
+    getTopAlbums(localStorage.getItem("artist"+ i), 10);    
 }
        
 });
@@ -22,14 +53,20 @@ function getTopAlbums(artist, limit){
     },
     {
         success: function(data) {
-            //var img =  0;
-            //var div = 0;
             var list = '<ol>';
             for (var i = 0; i < data.topalbums.album.length; i++) {
                 
-                list += "<div class='dive2' onClick=location.href='album.html';click()>" +  data.topalbums.album[i].name + "</div>";
+                list += "<div class='dive2' onClick=location.href='album.html'>" +  data.topalbums.album[i].name + "</div>";
 
                 }
+             
+              $(list).each(function(){
+                if($(this).html() == "NuLL, Somnium" || typeof($(this).html())=="undefined")
+                {
+                $(this).remove
+                }
+                })
+
          jQuery(list + '</ol>').appendTo('#topalbums');
          $('.loading').fadeOut();
         },
@@ -41,17 +78,6 @@ function getTopAlbums(artist, limit){
     
 }
 
-function click() {
-    
-    $(document).ready(function(){        
-       $('.dive2').click(function(){
-
-        localStorage.setItem('album', this.data.topalbums.album.name);
-       })
-
-    });
-
-}
 
 $(document).ready(function(){
 $('#home').hide();

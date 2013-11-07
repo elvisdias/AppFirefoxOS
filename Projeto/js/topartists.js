@@ -6,7 +6,6 @@ var lastfm = new LastFM({
     cache     : cache
 });
 
-
 $(document).ready(function(){
     
     getTopArtists(localStorage.getItem("key"), 10);    
@@ -23,16 +22,36 @@ function getTopArtists(user, limit){
         success: function(data) {
             var img =  0;
             var div = 0;
+           // var id = 10;
             
-            var list = '<ol>';
+            var list = "<ol id='lista'>";
+                   
+
             for (var i = 0; i < data.topartists.artist.length; i++) {
                 
-                list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>"  + "</div>";
-                
+                list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minus'>"  + "</div>";
+               
                 var artist = data.topartists.artist[i].name;
+
                 localStorage.setItem('artist'+i, artist);
-                
+
                 }
+
+               /* $(document).ready(function(){
+                    
+                    $('#plus').click(function(){
+                    var novo = document.forme.artist.value;                  
+
+                        if (novo != "") {
+                           localStorage.setItem("artist"+id, novo); 
+                             $("#lista").append("<div class='dive' id='artist"+id+"'>" + novo + "<img src='pics/-.png' id='1' onClick='fade(this.id)' class='minus'>" + "</div>");      
+                             novo = "";  
+                             id++;                 
+                        };                   
+                
+                });                       
+                });*/
+                
          jQuery(list + '</ol>').appendTo('#topartists');
          $('.loading').fadeOut();
         },
@@ -46,33 +65,21 @@ function getTopArtists(user, limit){
 
 
 function fade(id) {
-    
+    var x = true;
     var element = document.getElementById(id);
 
-    $(document).ready(function(){        
-        $(element).fadeTo("fast", 0.5);
-        localStorage.removeItem('artist'+id);
-    });
-
-}
-
-/*function change(id) {
-
- if(document.getElementById(id).value == "pics/-.png"){
-    document.getElementById(id).src="pics/+.gif";     
-    }else{
-     document.getElementById(id).src="pics/-.png";   
+if (x==true) {      
+     $(element).attr('src', 'pics/+.png');   
+     $(element).fadeTo("fast", 0.5);
+     localStorage.removeItem('artist'+id); 
+              
+    x = false; 
+  
+} else {        
+        $(element).fadeIn(0.5);
+        localStorage.setItem('artist'+id, artist);      
+        x=true;
     }
+
 }
 
-*/
-    
-/*
-function novo() {
-    var div = document.createElement('div');
-        div.innerHTML = document.form.nome.value;
-        div.style.backgroundColor="black";
-        var newContent = document.createTextNode(document.form.nome.value);
-       // div.setAttribute('class', 'diven'); 
-
-}*/
