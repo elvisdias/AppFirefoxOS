@@ -39,7 +39,7 @@ function getNewReleases(user,userecs){
 }*/
 
 $(document).ready(function(){
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 20; i++) {
     getTopAlbums(localStorage.getItem("artist"+ i), 10);    
 }
        
@@ -54,18 +54,25 @@ function getTopAlbums(artist, limit){
     {
         success: function(data) {
             var list = '<ol>';
+            
+            var gettop = new Array();
+
             for (var i = 0; i < data.topalbums.album.length; i++) {
+                gettop[i] = data.topalbums.album[i].name;                         
+               }     
+               
+            var realtop = new Array();
+                for(var i = 0; i < gettop.length; i++){
+                    if (gettop[i]){
+                     realtop.push(gettop[i]);
+                }       
+                 }
+
+            for (var i = 0; i < realtop.length; i++) {
                 
-                list += "<div class='dive2' onClick=location.href='album.html'>" +  data.topalbums.album[i].name + "</div>";
+                list += "<div class='dive2' onClick=location.href='album.html'>" +  realtop[i] + "</div>";
 
                 }
-             
-              $(list).each(function(){
-                if($(this).html() == "NuLL, Somnium" || typeof($(this).html())=="undefined")
-                {
-                $(this).remove
-                }
-                })
 
          jQuery(list + '</ol>').appendTo('#topalbums');
          $('.loading').fadeOut();

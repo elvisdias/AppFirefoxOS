@@ -8,13 +8,22 @@ function search(){
             var search = new Array();
 
             for (var i = 0; i < 10; i++) {
-                search[i] = localStorage.getItem("artist"+i);                  
+                search[i] = localStorage.getItem("artist"+i);      
                     
                }     
-           
-            for (var i = 0; i < search.length; i++) {
+               
+            var reals = new Array();
+                for(var i = 0; i<search.length; i++){
+                    if (search[i]){
+                     reals.push(search[i]);
+                }       
+                 }
                 
-                list += "<div class='dive' id='"+(div+i)+"'>" + search[i] + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>"  + "</div>";
+
+           
+            for (var i = 0; i < reals.length; i++) {
+                
+                list += "<div class='dive' onClick=location.href='artistinfo.html' id='"+(div+i)+"'>" + reals[i] + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>"  + "</div>";
 
                 }        
 
@@ -25,10 +34,10 @@ function search(){
                         if (novo != "") {
                            localStorage.setItem("artist"+id, novo); 
                              $("#lista").append("<div class='dive' id='artist"+id+"'>" + novo + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>" + "</div>");      
-                             novo = "";  
-                             id++;                 
-                        };                   
-                
+                             id++; 
+                             novo.replace(" ");                
+                        };         
+                    reals.push(novo);                          
                 });                       
                 });
                 
@@ -39,20 +48,33 @@ function search(){
 
 
 function fade(id) {
-    var x = true;
+    
     var element = document.getElementById(id);
+    var arr = new Array();
 
-if (x==true) {      
-        
-     $(element).fadeTo("fast", 0.5);
-     localStorage.removeItem('artist'+id);            
-    x = false; 
-  
-} else {        
-        $(element).fadeIn(0.5);
-        localStorage.setItem('artist'+id, artist);      
-        x=true;
+$('.dive').each(function() {
+  arr.push($(this).text());
+});
+       
+    $(document).ready(function(){
+    $(element).toggle(
+        function a(){
+        $(element).fadeTo("fast", 0.5, function(){
+            $("<img>").prop('src', 'pics/+.png')
+            .appendTo(element)
+            .addClass("minus2"); 
+            localStorage.removeItem('artist'+id);   
+
+        })
+    },
+        function b(){
+        $(element).fadeTo("fast", 1, function(){
+            $(".minus2").remove();
+            localStorage.setItem('artist'+id,arr[id]);   
+
+        })
+    });
+
+    });
+
     }
-
-}
-

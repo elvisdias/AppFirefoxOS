@@ -59,7 +59,7 @@ body {
 #user {
   height: 35px;
   width: 190px;
-  font-size: 30px;
+  font-size: 35px;
   border-color: black;
 }
 
@@ -175,7 +175,12 @@ a[role="button"],
 .minus {
 position: absolute; 
 left: 260px; 
-top: 10px;
+top: 11px;
+}
+.minus2 {
+position: absolute; 
+left: 258px; 
+top: 4.5px;
 }
 
 .done {
@@ -200,7 +205,7 @@ top: 10px;
 }
 .home {
   position: fixed;
-  left: 18px;
+  left: 20px;
   top: 8px;
 
 }

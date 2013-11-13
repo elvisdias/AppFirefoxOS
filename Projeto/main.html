@@ -54,8 +54,12 @@ function onTransitionFinished()
 
     </head>    
 		<body style='background-color: #CD2626;'>
-
-		<div class='titulo'> Usuário Last.fm </div>	
+			<script type="text/javascript">
+			$(document).ready(function(){
+				document.enter.user.focus();
+			})
+			</script>
+		<div class='titulo'> Last.fm username</div>	
 		<div class='pos'>
 			<form name='enter'>       
 				<input  type="text" name='user' id='user'>	  

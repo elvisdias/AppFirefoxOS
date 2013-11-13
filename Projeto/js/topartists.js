@@ -22,6 +22,7 @@ function getTopArtists(user, limit){
         success: function(data) {
             var img =  0;
             var div = 0;
+            var img2 = 0
            // var id = 10;
             
             var list = "<ol id='lista'>";
@@ -29,7 +30,7 @@ function getTopArtists(user, limit){
 
             for (var i = 0; i < data.topartists.artist.length; i++) {
                 
-                list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minus'>"  + "</div>";
+                list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minus'>" + "</div>";
                
                 var artist = data.topartists.artist[i].name;
 
@@ -52,7 +53,7 @@ function getTopArtists(user, limit){
                 });                       
                 });*/
                 
-         jQuery(list + '</ol>').appendTo('#topartists');
+        $(list + '</ol>').appendTo('#topartists');
          $('.loading').fadeOut();
         },
         
@@ -64,22 +65,35 @@ function getTopArtists(user, limit){
 }
 
 
+
 function fade(id) {
-    var x = true;
+    
     var element = document.getElementById(id);
+    var arr = new Array();
 
-if (x==true) {      
-     $(element).attr('src', 'pics/+.png');   
-     $(element).fadeTo("fast", 0.5);
-     localStorage.removeItem('artist'+id); 
-              
-    x = false; 
-  
-} else {        
-        $(element).fadeIn(0.5);
-        localStorage.setItem('artist'+id, artist);      
-        x=true;
+$('.dive').each(function() {
+  arr.push($(this).text());
+});
+       
+    $(document).ready(function(){
+    $(element).toggle(
+        function a(){
+        $(element).fadeTo("fast", 0.5, function(){
+            $("<img>").prop('src', 'pics/+.png')
+            .appendTo(element)
+            .addClass("minus2"); 
+            localStorage.removeItem('artist'+id);   
+
+        })
+    },
+        function b(){
+        $(element).fadeTo("fast", 1, function(){
+            $(".minus2").remove();
+            localStorage.setItem('artist'+id,arr[id]);   
+
+        })
+    });
+
+    });
+
     }
-
-}
-

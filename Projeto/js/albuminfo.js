@@ -6,7 +6,6 @@ var lastfm = new LastFM({
     cache     : cache
 });
 
-
 $(document).ready(function(){
     
     getInfo("Placebo","meds"); 
@@ -22,12 +21,18 @@ function getInfo(artist, album){
     {
         success: function(data) {
         
-            var div = '<div>';
+        var div = '<div>';
                            
-            div += "<div>" +  data.getinfo.album.name + "</div>";
-                
-         jQuery(div + '</div>').appendTo('#albuminfo');
-        
+            div = "<div>" +  data.album.name + "</div>";
+                         
+
+       /*  $(data.results.albummatches.album , function(){
+            
+            $('#albuminfo').append('<img src="'+this.image[3]['#text']+'" />');
+
+        });*/
+        $(div + '</div>').appendTo('#albuminfo');
+         
          $('.loading').fadeOut();
         },
         
