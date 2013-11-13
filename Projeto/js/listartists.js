@@ -7,7 +7,7 @@ function search(){
 
             var search = new Array();
 
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 30; i++) {
                 search[i] = localStorage.getItem("artist"+i);      
                     
                }     
@@ -17,9 +17,7 @@ function search(){
                     if (search[i]){
                      reals.push(search[i]);
                 }       
-                 }
-                
-
+                 }        
            
             for (var i = 0; i < reals.length; i++) {
                 
@@ -35,9 +33,10 @@ function search(){
                            localStorage.setItem("artist"+id, novo); 
                              $("#lista").append("<div class='dive' id='artist"+id+"'>" + novo + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>" + "</div>");      
                              id++; 
-                             novo.replace(" ");                
+                             novo.replace(""); 
+                             reals.push(novo);                    
                         };         
-                    reals.push(novo);                          
+                                        
                 });                       
                 });
                 
@@ -45,7 +44,6 @@ function search(){
          $('.loading').fadeOut();       
     
 }
-
 
 function fade(id) {
     
