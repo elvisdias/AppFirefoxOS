@@ -276,3 +276,20 @@ font-size: 5px;
   width: 300px;
 }
 
+/*  INFOS  */
+
+.titlename {
+  position: fixed;
+  top: 8px;
+  font-size: 35px;
+  color: white;
+  left: 90px;
+}
+
+.content {
+  position: fixed;
+  top: 90px;
+  width: 300px;
+  background-color: white;
+  border-radius: 2px;
+}

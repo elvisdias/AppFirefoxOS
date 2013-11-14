@@ -22,8 +22,11 @@ function getInfo(artist, album){
         success: function(data) {
         
         var div = '<div>';
+        var div2 = '<div>';
                            
-            div = "<div>" +  data.album.name + "</div>";
+            div = "<div class='titlename'>" +  data.album.name + "</div>";
+            div = "<div class='content'>" +  data.album.tracks + "</div>";
+
                          
 
        /*  $(data.results.albummatches.album , function(){
@@ -31,7 +34,7 @@ function getInfo(artist, album){
             $('#albuminfo').append('<img src="'+this.image[3]['#text']+'" />');
 
         });*/
-        $(div + '</div>').appendTo('#albuminfo');
+        $(div + div2 + '</div>').appendTo('#albuminfo');
          
          $('.loading').fadeOut();
         },

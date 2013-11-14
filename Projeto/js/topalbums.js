@@ -39,7 +39,7 @@ function getNewReleases(user,userecs){
 }*/
 
 $(document).ready(function(){
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 35; i++) {
     getTopAlbums(localStorage.getItem("artist"+ i), 10);    
 }
        

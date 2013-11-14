@@ -6,24 +6,22 @@ var lastfm = new LastFM({
     cache     : cache
 });
 
-lastfm.artist.getInfo({artist:'Nirvana'}, {success: function(data){
+lastfm.artist.getInfo({artist:'Placebo'}, {success: function(data){
   
   var div = "<div>";
+  var div2 = "<div>";
+ // var div3 = "<div>";
   
-  div = "<div>" +  data.artist.name + "</div>";
- // div = "<div>" +  data.artist.info + "</div>";
- console.log(data.artist.getInfo);
+  div = "<div class='titlename'>" +  data.artist.name + "</div>";
+  div2 = "<div class='content'>" + '&nbsp;' + '&nbsp;' + data.artist.bio.content + "</div>";
+  //div3 = "<div class='content'>" +  data.artist.image[size='medium'] + "</div>";
  
-
- $(div + '</div>').appendTo('#artistinfo');
+  $(div + div2 + '</div>').appendTo('#artistinfo');
     $('.loading').fadeOut();
 
 
 }, error: function(data){
   alert(data.error + " " + data.message);
 }});
-
-
-
 
 
