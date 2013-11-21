@@ -5,42 +5,11 @@ var lastfm = new LastFM({
     apiSecret : '4e80f575b0ccff9c5f4b1161c67618e1',
     cache     : cache
 });
-/*$(document).ready(function(){
-    
-    getNewReleases('reidoindie',1);    
-       
-});
-
-function getNewReleases(user,userecs){
-   
-    lastfm.user.getNewReleases({
-        user: user,
-        userecs : userecs
-    },
-    {
-        success: function(data) {
-            var list = '<ol>';
-            
-                
-                list += data.getNewReleases.name;
-
-                
-                
-
-         jQuery(list + '</ol>').appendTo('#topalbums');
-         $('.loading').fadeOut();
-        },
-        
-        error: function(data) {
-           alert(data.error + " " + data.message);
-        }
-    });
-    
-}*/
+var gettop = new Array();
 
 $(document).ready(function(){
-    for (var i = 0; i < 35; i++) {
-    getTopAlbums(localStorage.getItem("artist"+ i), 10);    
+    for (var i = 0; i < 20; i++) {
+    gettop[i] = getTopAlbums(localStorage.getItem("artist"+ i), 10);    
 }
        
 });
@@ -54,24 +23,18 @@ function getTopAlbums(artist, limit){
     {
         success: function(data) {
             var list = '<ol>';
-            
-            var gettop = new Array();
-
-            for (var i = 0; i < data.topalbums.album.length; i++) {
-                gettop[i] = data.topalbums.album[i].name;                         
-               }     
                
             var realtop = new Array();
                 for(var i = 0; i < gettop.length; i++){
-                    if (gettop[i]){
-                     realtop.push(gettop[i]);
-                }       
-                 }
+                    if (gettop[i] != undefined && gettop[i] != null && gettop[i] != "NuLL") {
+                            realtop.push(gettop[i]);
+                        }
+                     }       
 
             for (var i = 0; i < realtop.length; i++) {
                 
-                list += "<div class='dive2' onClick=location.href='album.html'>" +  realtop[i] + "</div>";
-
+                list = "<div class='dive2' onClick=location.href='album.html'>" +  realtop[i] + "</div>";
+                
                 }
 
          jQuery(list + '</ol>').appendTo('#topalbums');
@@ -92,6 +55,5 @@ $('#home').hide();
     $('#home').fadeIn();
     $("html, body").css({'width':'100%', 'height':'100%', 'overflow':'hidden'});
 })*/
-
 });
 

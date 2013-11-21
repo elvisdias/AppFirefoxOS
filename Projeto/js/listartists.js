@@ -4,7 +4,7 @@ function search(){
             var id = 10;
             var div = 0;
             var list = "<ol id='lista'>";
-            var divi = 0;
+            
             var artcli;
 
             var search = new Array();
@@ -23,7 +23,7 @@ function search(){
            
             for (var i = 0; i < reals.length; i++) {
                 
-                list += "<div class='dive' onClick=location.href='artistinfo.html' id='"+(div+i)+"'>" + '&nbsp;' + reals[i] + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>"  + "</div>";
+                list += "<div class='dive' onClick=location.href='artistinfo.html' id='"+(div+i)+"'>" + reals[i] +  "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>" + "</div>";
                
                 }   
 
@@ -33,7 +33,7 @@ function search(){
 
                         if (novo != "") {
                            localStorage.setItem("artist"+id, novo); 
-                             $("#lista").append("<div class='dive' id='artist"+id+"'>" + '&nbsp;' + novo + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>" + "</div>");      
+                             $("#lista").append("<div class='dive' onClick=location.href='artistinfo.html' id='artist"+id+"'>" + novo + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>" + "</div>");      
                              id++; 
                              novo.replace(""); 
                              reals.push(novo);                    
@@ -46,13 +46,9 @@ function search(){
                 
                 $(document).ready(function(){
                   $('.dive').click(function(){
-                    artcli = getElementByTagName('div');
-                    localStorage.setItem("artcli"+divi, artcli);
-                    divi ++ ;
+                    localStorage.setItem("artcli", $(this).text());                    
                   })
-
-                })               
-    
+                })   
 }
 
 function fade(id) {
