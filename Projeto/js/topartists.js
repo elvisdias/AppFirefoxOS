@@ -37,21 +37,6 @@ function getTopArtists(user, limit){
                 localStorage.setItem('artist'+i, artist);
 
                 }
-
-               /* $(document).ready(function(){
-                    
-                    $('#plus').click(function(){
-                    var novo = document.forme.artist.value;                  
-
-                        if (novo != "") {
-                           localStorage.setItem("artist"+id, novo); 
-                             $("#lista").append("<div class='dive' id='artist"+id+"'>" + novo + "<img src='pics/-.png' id='1' onClick='fade(this.id)' class='minus'>" + "</div>");      
-                             novo = "";  
-                             id++;                 
-                        };                   
-                
-                });                       
-                });*/
                 
         $(list + '</ol>').appendTo('#topartists');
          $('.loading').fadeOut();

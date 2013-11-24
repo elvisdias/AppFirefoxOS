@@ -9,7 +9,7 @@ var lastfm = new LastFM({
 lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
   success: function(data){
   
-  var div = "<div>";
+
   var div2 = "<div>";
   //var div3 = "<div>";
   var div4 = "<div id='dive4'>";
@@ -24,28 +24,34 @@ lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
   //div3 = "<div>" +  "<img src='http://userserve-ak.last.fm/serve/252/78461.jpg'>" + "</div>";
   
   for (i=0; i<=4; i++){
-  div4 += "<div class='similars' id='si"+i+"'>" +  data.artist.similar.artist[i].name + "</div>";
+  div4 += "<div class='similars'>" +  data.artist.similar.artist[i].name + "</div>";
   }
   
-  $(div + div2 + div4 + '</div>').appendTo('#artistinfo');
+  $(div).appendTo('#titlen');
+  $(div2 + '</div>').appendTo('#artistinfo');
+  $(div4 + '</div>').appendTo('#similar');
     $('.loading').fadeOut();
+    
+  $(document).ready(function(){
+      $('.similars').click(function(){
+        location.href='artistinfo.html';
+        localStorage.setItem("artcli", $(this).text());                    
+       })
+    })   
 
 
 }, error: function(data){
   alert(data.error + " " + data.message);
 }});
 
-lastfm.artist.getTopAlbums({artist: localStorage.getItem("artcli"), limit: 10}, {
+lastfm.artist.getTopAlbums({artist: localStorage.getItem("artcli"), limit: 8}, {
   success: function(data){
   
   var list = "<div class='albumss'>";  
-  var ide;
-    for (var i = 0; i < data.topalbums.album.length; i++) {
-                
-      list += "<div onClick=location.href='albuminfo.html' class='artalbum'>" +  data.topalbums.album[i].name + "</br>" + "<hr 'style= width:100%; color:#D3D3D3'>" + "</div>";
-        
+    for (var i = 0; i < data.topalbums.album.length; i++) {                
+      list += "<div onClick=location.href='albuminfo.html' class='artalbum'>" +  data.topalbums.album[i].name + "</br>" + "<hr 'style= width:100%; color:#D3D3D3'>" + "</div>";        
     }
- 
+
   $(list + '</div>').appendTo('#artistinfo2');
   $('.loading').fadeOut();
     

@@ -3,10 +3,8 @@ function search(){
    
             var id = 10;
             var div = 0;
-            var list = "<ol id='lista'>";
-            
+            var list = "<ol id='lista'>";            
             var artcli;
-
             var search = new Array();
 
             for (var i = 0; i < 30; i++) {
@@ -23,7 +21,7 @@ function search(){
            
             for (var i = 0; i < reals.length; i++) {
                 
-                list += "<div class='dive' onClick=location.href='artistinfo.html' id='"+(div+i)+"'>" + reals[i] +  "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>" + "</div>";
+                list += "<div class='dive' id='"+(div+i)+"'>" + reals[i] +  "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>" + "</div>";
                
                 }   
 
@@ -33,7 +31,7 @@ function search(){
 
                         if (novo != "") {
                            localStorage.setItem("artist"+id, novo); 
-                             $("#lista").append("<div class='dive' onClick=location.href='artistinfo.html' id='artist"+id+"'>" + novo + "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>" + "</div>");      
+                             $("#lista").append("<div class='dive' onClick=location.href='artistinfo.html' id='artist"+id+"'>" + novo + "<img src='pics/-.png' id='"+(i)+"' usemap='minus' class='minus'>" + "</div>");      
                              id++; 
                              novo.replace(""); 
                              reals.push(novo);                    
@@ -44,9 +42,10 @@ function search(){
           $(list + '</ol>').appendTo('#listartists');
           $('.loading').fadeOut();
                 
-                $(document).ready(function(){
-                  $('.dive').click(function(){
-                    localStorage.setItem("artcli", $(this).text());                    
+            $(document).ready(function(){
+              $('.dive').click(function(){
+               location.href='artistinfo.html';
+               localStorage.setItem("artcli", $(this).text());                    
                   })
                 })   
 }

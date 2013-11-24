@@ -112,30 +112,10 @@ a[role="button"],
 
 /*  LIST  */
 
-  /*.board{
-    height: 35px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    font-size: 23px;
-    border-radius: 1px;
-    color: white;
-    border:1px solid #980021;
-    box-shadow: inset 0 2px 3px 0 rgba(255,255,255,.3), inset 0 -3px 6px 0 rgba(0,0,0,.2), 0 3px 2px 0 rgba(0,0,0,.2);
-    background-image: linear-gradient(to bottom, #a00000, #b90000 130%);
-  }
-*/
-.board{
-  font-size: 33px;
-  color: white;
-
-}
-
 .searchb {
   position: fixed;
-  top: 60px;
-  left: 233px;
+  top: 70px;
+  left: 248px;
   width: 10px;
   height: 25px;
 
@@ -143,8 +123,8 @@ a[role="button"],
 
 .search {
   position: fixed;
-  top: 60px;
-  left: 25px;
+  top: 70px;
+  left: 40px;
   color: red;
   height: 25px;
   font-size: 20px;
@@ -157,7 +137,7 @@ a[role="button"],
   width: 290;
   position: relative;
   top: -20px;
-  left: -40px;
+  left: -37px;
   margin: 0px 0 8px 0;   
   text-transform: capitalize;
   padding-left: 4px;
@@ -170,6 +150,8 @@ position: absolute;
 left: 265px; 
 top: 11px;
 }
+
+
 .minus2 {
 position: absolute; 
 left: 263px; 
@@ -201,32 +183,26 @@ top: 3px;
 }
 .home {
   position: fixed;
-  left: 20px;
-  top: 8px;
-
+  left: 260px;
+  top: 12.5px;
 }
+.edit {
+  position: fixed;
+  left: 263px;
+  top: 16px;
+}
+.back{
+  position: fixed;
+  left: 10px;
+  top: 9px;
 
-#home {
-  height: 400px;
-  width: 275px;
-  background-color: #EE2C2C;
-  position: absolute;
-  z-index: 1;
-  overflow: hidden;
-  
 }
 
 /*  ARTISTS  */
 
 .artists {
   position: fixed;
-  top: 115px;
-}
-
-/*  ARTIST  */
-
-amazon, itunes {
-font-size: 5px;
+  top: 125px;
 }
 
 .add{
@@ -275,17 +251,23 @@ font-size: 5px;
 /*  INFOS  */
 
 .titlename {
-  position: fixed;
-  top: 8px;
   font-size: 35px;
-  color: white;
-  left: 85px;
+  color: white;  
   text-align: center;
+  margin: 0 auto;
+  width: 200px;
+  position: relative;
+  top: -5px;
+}
+
+#titlen{
+  position: fixed;
+  top: 15px;
+  width: 290px;
+  height: 90px;
 }
 
 .content {
-  position: fixed;
-  top: 75px;
   width: 290px;
   background-color: white;
   border-radius: 4px;
@@ -294,74 +276,63 @@ font-size: 5px;
   padding-right: 7px;
   font-size: 17px;
 }
-#simil{
+
+#similar{
   font-size: 22px;
-  position: relative;
-  top: 400px;
   color: white;
 }
-#artistinfo2{
-  position: fixed;
-  top: 520px;
-}
 
-.listatop {
-  position: fixed;
-  top: 420px;
-}
-
-.albumss{
+.albumss {
   background-color: white;
-  padding-left: 7px;
   border-radius: 3px;
-  padding-left: 4px;
+  padding-left: 7px;
   padding-right: 4px;
   padding-top: 4px;
   padding-bottom: 4px;
   width: 290px;
   font-size: 16px;
 }
-.listatop p
- {
+
+.trackss{
+  padding-top: 4px;
+  padding-bottom: 4px;
+  width: 300px;
+  font-size: 16px;
+  border-radius: 2px;
+  
+}
+div#track div:nth-child(even) {background: #FFF;}
+div#track div:nth-child(odd) {background: #CCC;}
+
+.time{
+  position: relative;
+  left: 100px;
+}
+
+.listatop p {
   font-size: 25px;
   color: white;
-  position: fixed;
-  top: 455px;
-}
+ }
 .similars {
   background-color: white;
   padding-left: 7px;
-  border-radius: 3px;
-  padding-left: 4px;
+  border-radius: 4.5px;
   padding-right: 4px;
   padding-top: 4px;
   padding-bottom: 4px;
   font-size: 15px;
-  position: fixed;
-  top: 435px;
-}
+  color: black;
+  display: inline-block;
+  margin: 0 7px 10px 0;
+  white-space: nowrap
 
-#si0{
-  position: absolute;
-  left: 10px;
-}
-#si1{
-  position: absolute;
-  left: 100px;
-}
-#si2{
-  position: absolute;
-  left: 180px;
-}
-#si3{
-  position: absolute;
-  left: 240px;
-}
- 
+ }
+
 #dive4{
   width: 290px;
+  height: 70px;
 }
 
 .artalbum{
-  
+
 }
