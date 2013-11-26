@@ -6,26 +6,35 @@ var lastfm = new LastFM({
     cache     : cache
 });
 
+/*
 var gettop = new Array();
 var realtop = new Array();
 
 for (var i = 0; i < localStorage.length ; i++) {
-    gettop[i] = JSON.parse(localStorage.getItem("artist0"));    
+    gettop[i] = localStorage.getItem("artist0");    
 }
-/*for(var i = 0; i < gettop.length; i++){
+for(var i = 0; i < gettop.length; i++){
     if (gettop[i] != undefined && gettop[i] != null && gettop[i] != "NuLL") {
     realtop.push(gettop[i]);
     }
- }  */     
+ }  
+*/
+$(document).ready(function(){
+   for (var i = 0; i<localStorage.length; i++){
+       getTopAlbums(localStorage.getItem("artist"+i), 10); 
+     }       
+});
 
-lastfm.artist.getTopAlbums({
-
-    artist: localStorage.getItem(gettop), 
-    limit: 10
-    }, 
-    {  success: function(data){
+function getTopAlbums(artist, limit){
+   
+    lastfm.artist.getTopAlbums({
+        artist: artist,
+        limit: limit
+    },
+    {
+     success: function(data){
   
-  var list = "<div>";  
+    var list = "<div>";  
     for (var i = 0; i < data.topalbums.album.length; i++) {                
       list += "<div onClick=location.href='albuminfo.html'>" +  data.topalbums.album[i].name +  "</div>";        
     }
@@ -36,4 +45,4 @@ lastfm.artist.getTopAlbums({
 }, error: function(data){
   alert(data.error + " " + data.message);
 }});
-
+}
