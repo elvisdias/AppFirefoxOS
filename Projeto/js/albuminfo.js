@@ -39,7 +39,7 @@ lastfm.album.getInfo({artist: localStorage.getItem("artcli"), album: localStorag
   success: function(data){
   var div = "<div>";              
   
-    div += "<div class='content'>" + data.affiliations.downloads.affiliation.supplierIcon + "</div>";    
+    div += "<div class='content'>" + data.affiliations.downloads.affiliation[0].buyLink + "</div>";    
 
   $(div + '</div>').appendTo('#links');
   $('.loading').fadeOut();
@@ -47,5 +47,5 @@ lastfm.album.getInfo({artist: localStorage.getItem("artcli"), album: localStorag
 }, error: function(data){
   alert(data.error + " " + data.message);
 }});
-
 */
+

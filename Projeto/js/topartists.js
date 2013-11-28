@@ -26,12 +26,11 @@ function getTopArtists(user, limit){
            // var id = 10;
             
             var list = "<ol id='lista'>";
-                   
-
-            for (var i = 0; i < data.topartists.artist.length; i++) {
+			
+			for (var i = 0; i < data.topartists.artist.length; i++) {
                 
-                list += "<div class='dive' id='"+(div+i)+"'>" + '&nbsp;' + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minus'>" + "</div>";
-               
+                list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minusd'>" + "</div>";
+				
                 var artist = data.topartists.artist[i].name;
 
                 localStorage.setItem('artist'+i, artist);
@@ -67,13 +66,12 @@ $('.dive').each(function() {
             $("<img>").prop('src', 'pics/+.png')
             .appendTo(element)
             .addClass("minus2"); 
-            localStorage.removeItem('artist'+id);   
-
+            delete window.localStorage["artist"+id];
         })
     },
         function b(){
         $(element).fadeTo("fast", 1, function(){
-            $(".minus2").remove();
+            $(".minus2 ").remove();
             localStorage.setItem('artist'+id,arr[id]);   
 
         })

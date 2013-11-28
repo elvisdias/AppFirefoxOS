@@ -36,7 +36,7 @@ function getTopAlbums(artist, limit){
   
     var list = "<div>";  
     for (var i = 0; i < data.topalbums.album.length; i++) {                
-      list += "<div onClick=location.href='albuminfo.html'>" +  data.topalbums.album[i].name +  "</div>";        
+      list += "<div class='diven' onClick=location.href='albuminfo.html'>" +  data.topalbums.album[i].name +  "</div>";        
     }
 
   $(list + '</div>').appendTo('#topalbums');
@@ -46,3 +46,16 @@ function getTopAlbums(artist, limit){
   alert(data.error + " " + data.message);
 }});
 }
+
+$(document).ready(function(){
+      $('.diven').click(function(){
+        localStorage.setItem("albcli", $(this).text());    
+        localStorage.setItem("artcli", artist);         
+       })
+    })     
+
+$(document).ready(function(){
+  $('.edit').click(function(){    
+    localStorage.clear();
+     })
+})   

@@ -15,6 +15,12 @@ lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
   var div4 = "<div id='dive4'>";
 
   div = "<div class='titlename'>" +  data.artist.name + "</div>";
+   
+  /*data = data.replace('#text', 'text')
+   
+  var image = data.artist.image[3].text;
+  
+  document.getElementById('imagemCoisada').src = data.artist.image[3].text*/
   
   var str =  data.artist.bio.content;
   var vazio = "";
@@ -44,7 +50,7 @@ lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
   alert(data.error + " " + data.message);
 }});
 
-lastfm.artist.getTopAlbums({artist: localStorage.getItem("artcli"), limit: 8}, {
+lastfm.artist.getTopAlbums({artist: localStorage.getItem("artcli"), limit: 6}, {
   success: function(data){
   
   var list = "<div class='albumss'>";  

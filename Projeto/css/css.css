@@ -114,7 +114,7 @@ a[role="button"],
 
 .searchb {
   position: fixed;
-  top: 70px;
+  top: 69px;
   left: 248px;
   width: 10px;
   height: 25px;
@@ -133,8 +133,42 @@ a[role="button"],
 .dive{
   background-color: white;
   border-radius: 4px; 
+  overflow: hidden;
+  width: 290px;
+  position: relative;
+  top: -20px;
+  left: -37px;
+  margin: 0px 0 10px 0;   
+  text-transform: capitalize;
+  padding-left: 7px;
+  font-size: 18px;
+  line-height:1.3em;
+}
+.diven{
+  background-color: white;
+  border-radius: 4px; 
+  overflow: hidden;
+  width: 290px;
+  position: relative;
+  top: 50px;
+  left: 4.5px;
+  margin: 0px 0px 8px 0;   
+  text-transform: capitalize;
+  padding-left: 4px;
+  font-size: 18px;
+  line-height:1.3em;
+}
+.minusd {
+position: absolute;
+left: 265px;
+top: 11px;
+}
+.diveText{
+  background-color: white;
+  border-radius: 4px; 
   height: 27px;
-  width: 290;
+  overflow: auto;
+  width: 260px;
   position: relative;
   top: -20px;
   left: -37px;
@@ -144,13 +178,27 @@ a[role="button"],
   font-size: 18px;
   line-height:1.3em;
   }
+  
+.diveImg{
+  background-color: white;
+  border-radius: 4px; 
+  height: 27px;
+  width: 40px;
+  position: relative;
+  top: -55px;
+  left: 218px;
+  margin: 0px 0 8px 0;   
+  text-transform: capitalize;
+  padding-left: 4px;
+  font-size: 18px;
+  line-height:1.3em;
+  }
 
 .minus {
-position: absolute; 
-left: 265px; 
+position: absolute;
+left: 16px;
 top: 11px;
 }
-
 
 .minus2 {
 position: absolute; 
@@ -158,12 +206,21 @@ left: 263px;
 top: 3px;
 }
 
+.minus3 {
+position: relative; 
+left: 233px; 
+top: -86px;
+}
+
+
+
 .done {
   position: fixed;
   left: 250px;
-  top: 430px;  
+  top: 440px;  
   width: 45px;
   height: 25px;
+  border-radius: 4px;
 }
 
 /*  HOME  */
@@ -181,20 +238,29 @@ top: 3px;
   font-size: 17px;
   line-height:2em;
 }
+
 .home {
   position: fixed;
   left: 260px;
   top: 12.5px;
 }
+
 .edit {
   position: fixed;
-  left: 263px;
-  top: 16px;
+  left: 267px;
+  top: 24px;
 }
+
 .back{
   position: fixed;
   left: 10px;
   top: 9px;
+}
+
+.set{
+  position: fixed;
+  left: 9px;
+  top: 13px;
 
 }
 
@@ -335,4 +401,7 @@ div#track div:nth-child(odd) {background: #CCC;}
 
 .artalbum{
 
+}
+.qualquer {
+	height: 40px;
 }

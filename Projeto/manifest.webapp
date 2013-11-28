@@ -1,12 +1,15 @@
 {
     "version": "1",
-    "name": "nonameyet",
+    "name": "Artistify",
         "description": "",
     "launch_path": "main.html", 
     "developer": {
         "name": "Elvis",
         "url": "http://ifrn.edu.br"
     },
+    "icons": {
+    "128": "/pics/music.png"  
+         },
     "installs_allowed_from": ["*"],
 	    "default_locale": "en",
     "permissions": {
