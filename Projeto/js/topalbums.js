@@ -36,7 +36,7 @@ function getTopAlbums(artist, limit){
   
     var list = "<div>";  
     for (var i = 0; i < data.topalbums.album.length; i++) {                
-      list += "<div class='diven' onClick=location.href='albuminfo.html'>" +  data.topalbums.album[i].name +  "</div>";        
+      list += "<div class='diven'>" + "<div>" + "<img src='"+data.topalbums.album[i].image[0]['#text']+"'>" + "</div>" + "     " + "<span>" + data.topalbums.album[i].name + "</span>" + "</div>";        
     }
 
   $(list + '</div>').appendTo('#topalbums');
@@ -48,14 +48,7 @@ function getTopAlbums(artist, limit){
 }
 
 $(document).ready(function(){
-      $('.diven').click(function(){
-        localStorage.setItem("albcli", $(this).text());    
-        localStorage.setItem("artcli", artist);         
-       })
-    })     
-
-$(document).ready(function(){
-  $('.edit').click(function(){    
+  $('.set').click(function(){    
     localStorage.clear();
      })
 })   

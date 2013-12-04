@@ -11,30 +11,26 @@ lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
   
 
   var div2 = "<div>";
-  //var div3 = "<div>";
+  var div3 = "<div>";
   var div4 = "<div id='dive4'>";
+  var div = "<div>" +  data.artist.name + "</div>";
+  var isLarge = false; 
 
-  div = "<div class='titlename'>" +  data.artist.name + "</div>";
-   
-  /*data = data.replace('#text', 'text')
-   
-  var image = data.artist.image[3].text;
-  
-  document.getElementById('imagemCoisada').src = data.artist.image[3].text*/
-  
+  document.getElementById('artim').src = data.artist.image[3]['#text'];
+
   var str =  data.artist.bio.content;
   var vazio = "";
   var res = str.replace(/User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL./g, vazio);
   
   div2 = "<div class='content' id='cont'>" + res +  "</div>";
-  //div3 = "<div>" +  "<img src='http://userserve-ak.last.fm/serve/252/78461.jpg'>" + "</div>";
+  div3 = "<div class='more'>" +  "Show more" + "</div>";
   
   for (i=0; i<=4; i++){
   div4 += "<div class='similars'>" +  data.artist.similar.artist[i].name + "</div>";
   }
   
   $(div).appendTo('#titlen');
-  $(div2 + '</div>').appendTo('#artistinfo');
+  $(div2 + div3 + '</div>').appendTo('#artistinfo');
   $(div4 + '</div>').appendTo('#similar');
     $('.loading').fadeOut();
     
@@ -44,6 +40,26 @@ lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
         localStorage.setItem("artcli", $(this).text());                    
        })
     })   
+
+
+$(document).ready(function(){
+  $(".more").hover(
+    function(){
+  $(this).css("color","black");},
+    function(){
+     $(this).css("color","#FFE1FF"); 
+    }
+  );
+  $(".more").click(function(){
+    $("#cont").animate({height: isLarge ? "250px" : $('#cont').css("height", "auto") });    
+    isLarge = !isLarge;    
+    if(isLarge == false){
+      $(".more").text("Show More")
+    } else {
+      $(".more").text("Show Less")
+    }
+  });
+});
 
 
 }, error: function(data){

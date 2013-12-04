@@ -113,18 +113,18 @@ a[role="button"],
 /*  LIST  */
 
 .searchb {
-  position: fixed;
-  top: 69px;
-  left: 248px;
+  position: relative;
+  top: 25px;
+  left: 35px;
   width: 10px;
   height: 25px;
 
 }
 
 .search {
-  position: fixed;
-  top: 70px;
-  left: 40px;
+  position: relative;
+  top: 20px;
+  left: 30px;
   color: red;
   height: 25px;
   font-size: 20px;
@@ -140,24 +140,30 @@ a[role="button"],
   left: -37px;
   margin: 0px 0 10px 0;   
   text-transform: capitalize;
-  padding-left: 7px;
   font-size: 18px;
-  line-height:1.3em;
+  line-height:0em;
 }
 .diven{
   background-color: white;
-  border-radius: 4px; 
-  overflow: hidden;
+  border-radius: 4px;   
   width: 290px;
+  height: 34px;
+  overflow: hidden;
   position: relative;
   top: 50px;
   left: 4.5px;
   margin: 0px 0px 8px 0;   
   text-transform: capitalize;
-  padding-left: 4px;
   font-size: 18px;
-  line-height:1.3em;
+  line-height:0em;
 }
+
+span {
+  position: relative;
+  top: -17px;
+  left: 40px;
+}
+
 .minusd {
 position: absolute;
 left: 265px;
@@ -215,16 +221,19 @@ top: -86px;
 
 
 .done {
-  position: fixed;
-  left: 250px;
-  top: 440px;  
-  width: 45px;
+  position: relative;
+  left: 245px;
+  top: 30px;  
+  width: 50px;
   height: 25px;
   border-radius: 4px;
 }
 
 /*  HOME  */
-
+#topalbums{
+  position: relative;
+  top: -40px;
+}
 .dive2{
   background-color: white;
   border-radius: 4px; 
@@ -240,39 +249,44 @@ top: -86px;
 }
 
 .home {
-  position: fixed;
-  left: 260px;
-  top: 12.5px;
+  position: absolute;
+  left: 255px;
+  top: 11px;
 }
 
 .edit {
-  position: fixed;
-  left: 267px;
-  top: 24px;
+  position: absolute;
+  left: 269px;
+  top: 8px;
 }
 
 .back{
-  position: fixed;
-  left: 10px;
-  top: 9px;
+  position: absolute;
+  left: 0px;
+  top: 8px;
 }
 
 .set{
-  position: fixed;
-  left: 9px;
-  top: 13px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
 
 }
 
 /*  ARTISTS  */
 
+#artim{
+  position: relative;
+  top: 23px;
+}
+
 .artists {
-  position: fixed;
-  top: 125px;
+  position: relative;
+  top: 35px;
 }
 
 .add{
-  position: fixed;
+  position: relative;
   top: 30px;
   left: 200px;
 }
@@ -282,30 +296,6 @@ top: -86px;
   top: 70px;
 }
 
-.title {
-  position: absolute;
-  top: 80px;
-  left: 60px;
-  }
-  
- .title2 {
-  position: absolute;
-  top: 130px;
-  left: 60px;
-  }  
-  
-.albuns {
-  position: fixed;
-  top: 460px;
-  left: 10px;
-}
-.info2 {
-  height: 80px;
-  width: 300px;
-  position: fixed;
-  top: 300px;
-  left: 30px;
-}
 
 /*  NOT  */
 
@@ -316,31 +306,50 @@ top: -86px;
 
 /*  INFOS  */
 
-.titlename {
-  font-size: 35px;
+.titlename {  
+  font-size: 38px;
   color: white;  
   text-align: center;
-  margin: 0 auto;
-  width: 200px;
+  margin: auto;
+  width: 300px;
   position: relative;
-  top: -5px;
+  top: 0px;
+  left: -10px;
 }
 
 #titlen{
-  position: fixed;
-  top: 15px;
-  width: 290px;
-  height: 90px;
+  position: relative;
+  top: 10px;
+  left: 40px;
+  width: 210px;
+  height: auto; 
+  text-align: center;
+  
 }
 
 .content {
+  position: relative;
+  top: 30px;
   width: 290px;
   background-color: white;
-  border-radius: 4px;
+  border-radius: 2px;
   padding-left: 7px;
   text-align: justify;
   padding-right: 7px;
   font-size: 17px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.more {
+  width: 185px;
+  background: -moz-linear-gradient(white, #828282);
+  height: 23px;
+  border-radius: 4px;
+  padding-left: 120px;  
+  position: relative;
+  top: 29px;
+  color: #FFE1FF;
 }
 
 #similar{
@@ -348,10 +357,23 @@ top: -86px;
   color: white;
 }
 
+.buy{
+  font-size: 20px;
+  color: white;
+}
+
+#link{
+position: relative;
+bottom: 25px;
+left: 65px;
+}
+
 .albumss {
+  position: relative;
+  top: 5px;
   background-color: white;
   border-radius: 3px;
-  padding-left: 7px;
+  padding-left: 4px;
   padding-right: 4px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -359,26 +381,30 @@ top: -86px;
   font-size: 16px;
 }
 
+#albim{
+  position: relative;
+  top: 23px;
+}
 .trackss{
   padding-top: 4px;
   padding-bottom: 4px;
   width: 300px;
   font-size: 16px;
-  border-radius: 2px;
-  
-}
+  border-radius: 1px;
+    
+  }
+
+
 div#track div:nth-child(even) {background: #FFF;}
 div#track div:nth-child(odd) {background: #CCC;}
-
-.time{
-  position: relative;
-  left: 100px;
-}
 
 .listatop p {
   font-size: 25px;
   color: white;
+  position: relative;
+  top: 18px;
  }
+
 .similars {
   background-color: white;
   padding-left: 7px;
@@ -399,9 +425,8 @@ div#track div:nth-child(odd) {background: #CCC;}
   height: 70px;
 }
 
-.artalbum{
+.artalbum{}
 
-}
 .qualquer {
 	height: 40px;
 }

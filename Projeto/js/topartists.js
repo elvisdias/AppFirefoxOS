@@ -29,14 +29,13 @@ function getTopArtists(user, limit){
 			
 			for (var i = 0; i < data.topartists.artist.length; i++) {
                 
-                list += "<div class='dive' id='"+(div+i)+"'>" + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minusd'>" + "</div>";
+                list += "<div class='dive' id='"+(div+i)+"'>" + "<img src='"+data.topartists.artist[i].image[0]['#text']+"'>" + "    " + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minusd'>" + "</div>";
 				
                 var artist = data.topartists.artist[i].name;
-
                 localStorage.setItem('artist'+i, artist);
-
-                }
                 
+                }       
+
         $(list + '</ol>').appendTo('#topartists');
          $('.loading').fadeOut();
         },
@@ -47,8 +46,6 @@ function getTopArtists(user, limit){
     });
     
 }
-
-
 
 function fade(id) {
     
