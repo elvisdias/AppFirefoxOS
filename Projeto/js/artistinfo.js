@@ -15,16 +15,21 @@ lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
   var div4 = "<div id='dive4'>";
   var div = "<div>" +  data.artist.name + "</div>";
   var isLarge = false; 
+  var vazio = "";
 
   document.getElementById('artim').src = data.artist.image[3]['#text'];
 
-  var str =  data.artist.bio.content;
-  var vazio = "";
-  var res = str.replace(/User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL./g, vazio);
-  
-  div2 = "<div class='content' id='cont'>" + res +  "</div>";
-  div3 = "<div class='more'>" +  "Show more" + "</div>";
-  
+  if (data.artist.bio) {
+        var str =  data.artist.bio.content;
+        res = data.artist.bio.content;
+        var res = str.replace(/User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL./g, vazio).replace("Read more about "+data.artist.name+" on Last.fm", vazio);     
+        div2 = "<div class='content' id='cont'>" + res + "</div>";         
+        div3 = "<div class='more'>" +  "Show more" + "</div>";
+
+  } else {
+        div2 = "<div class='content'>" +  "No description for this album." + "</div>";
+        $('.content').css({"height":"auto"});       // ?
+   }    
   for (i=0; i<=4; i++){
   div4 += "<div class='similars'>" +  data.artist.similar.artist[i].name + "</div>";
   }
@@ -48,8 +53,7 @@ $(document).ready(function(){
   $(this).css("color","black");},
     function(){
      $(this).css("color","#FFE1FF"); 
-    }
-  );
+    });
   $(".more").click(function(){
     $("#cont").animate({height: isLarge ? "250px" : $('#cont').css("height", "auto") });    
     isLarge = !isLarge;    
@@ -71,7 +75,7 @@ lastfm.artist.getTopAlbums({artist: localStorage.getItem("artcli"), limit: 6}, {
   
   var list = "<div class='albumss'>";  
     for (var i = 0; i < data.topalbums.album.length; i++) {                
-      list += "<div onClick=location.href='albuminfo.html' class='artalbum'>" +  data.topalbums.album[i].name + "</br>" + "<hr 'style= width:100%; color:#D3D3D3'>" + "</div>";        
+      list += "<div onClick=location.href='albuminfo.html' class='artalbum'>" + "<img src="+data.topalbums.album[i].image[0]['#text']+">" + "<span>" + data.topalbums.album[i].name + "</span>" + "</div>";        
     }
 
   $(list + '</div>').appendTo('#artistinfo2');

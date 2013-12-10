@@ -16,42 +16,27 @@
 	<script type="text/javascript" src="js/lib/fasw.transitions.min.js"></script>
            
     <script type="text/javascript">
-
+    $(document).ready(function(){
+    	var us = localStorage.getItem("key");
+    	if (us) {
+    		location.href='home.html';
+    	};
+    })
     function valida() {
-    	
     	var user = document.enter.user.value;
     	if (user == "") {
     		alert("Informe usuário!");
     		enter.user.focus();
     		return false;
     	} else {    		
-		    if (window.localStorage) {
 		    localStorage.setItem("key", user);
-	    } 
 	    	location.href='topartists.html';
+	    	//return true;
     	};
 
     }
-/*
-(function inittrans() 
-{
-	var params =	//All params are optional, you can just assign {} 
-		{ 
-			"navB" : "slide reverse",	//Effect for navigation button, leave it empty to disable it
-			"but" : true,				//Flag to enable transitions on button, false by default
-			"cBa" : onTransitionFinished // function() { alert("Done!"); }	//callback function
-		};
-	new ft(params);
-})();
-
-function onTransitionFinished()
-{
-	//Do anything you want 
-}
-*/
-
     </script>
-   </head>    
+</head>    
 
 		<body style='background:-moz-linear-gradient(#CD2626, #8B1A1A);'>
 			<script type="text/javascript">
@@ -64,8 +49,8 @@ function onTransitionFinished()
 			<form name='enter'>       
 				<input  type="text" name='user' id='user'>	  
 				<button type="button" class='enter' id='but' onClick="return valida()">enter</button>		
-
 			</form>	
+		<div class='notuser'>Not a last.fm user? <a href='artists.html'>click</a></div>
 		</div>	
 		
 

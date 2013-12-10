@@ -62,7 +62,16 @@ body {
   font-size: 35px;
   border-color: black;
 }
+.notuser{
+  position: relative;
+  top: 200px;
+  left: 18px;
+  color: white;
+}
 
+.notuser a{
+  color: black;
+}
 .pos {
 position: fixed;
 left: 60px;
@@ -112,6 +121,12 @@ a[role="button"],
 
 /*  LIST  */
 
+#ant{
+  position: relative;
+  top: -13px;
+  left: 42px;
+}
+
 .searchb {
   position: relative;
   top: 25px;
@@ -155,12 +170,12 @@ a[role="button"],
   margin: 0px 0px 8px 0;   
   text-transform: capitalize;
   font-size: 18px;
-  line-height:0em;
+  line-height:2em;
 }
 
 span {
   position: relative;
-  top: -17px;
+  top: -35px;
   left: 40px;
 }
 
@@ -217,8 +232,6 @@ position: relative;
 left: 233px; 
 top: -86px;
 }
-
-
 
 .done {
   position: relative;
@@ -304,6 +317,48 @@ top: -86px;
   width: 300px;
 }
 
+.menu{
+  background-color: #CD2626;
+  height: 430px;
+  width: 260px;
+  position: absolute;
+  z-index: 1;
+  top: 42px;
+  font-size: 20px;
+  left: -10px;
+}
+
+#edit{
+  background-color: #CD2626;
+  color: black;
+  position: relative;
+  left: -145px;
+  top: 0px;
+  width: 406px;
+  border-bottom: 1px solid gray;
+  border-top: 2px solid gray;
+  height: 40px;
+}
+#edit p {
+  position: relative;
+  top: -10px
+}
+#logout{
+  background-color: #CD2626;
+  color: black;
+  position: relative;
+  left: -167px;
+  top: 0px;
+  width: 429px;
+  height: 40px;
+  border-bottom: 2px solid gray;
+  border-top: 1px solid gray;
+}
+
+#logout p {
+  position: relative;
+  top: -10px;
+}
 /*  INFOS  */
 
 .titlename {  
@@ -373,13 +428,15 @@ left: 65px;
   top: 5px;
   background-color: white;
   border-radius: 3px;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 4px;
-  padding-bottom: 4px;
   width: 290px;
   font-size: 16px;
+  
 }
+.albumss span{
+  position: relative;
+  left: 10px;
+  top: -10px;
+} 
 
 #albim{
   position: relative;
@@ -425,7 +482,12 @@ div#track div:nth-child(odd) {background: #CCC;}
   height: 70px;
 }
 
-.artalbum{}
+.artalbum{
+  height: 34px;
+  border-bottom: 1px solid gray;
+  overflow: hidden;
+  line-height: 21px;
+}
 
 .qualquer {
 	height: 40px;

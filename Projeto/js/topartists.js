@@ -22,26 +22,25 @@ function getTopArtists(user, limit){
         success: function(data) {
             var img =  0;
             var div = 0;
-            var img2 = 0
-           // var id = 10;
-            
             var list = "<ol id='lista'>";
-			
+			var but = "<button type='button' class='done' id='but' onClick=location.href='home.html'>" + "Done" + "</button>"; 
+            
 			for (var i = 0; i < data.topartists.artist.length; i++) {
                 
-                list += "<div class='dive' id='"+(div+i)+"'>" + "<img src='"+data.topartists.artist[i].image[0]['#text']+"'>" + "    " + data.topartists.artist[i].name + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minusd'>" + "</div>";
+                list += "<div class='dive' id='"+(div+i)+"'>" + "<img src='"+data.topartists.artist[i].image[0]['#text']+"'>" + "    " + "<div id=ant>" +data.topartists.artist[i].name + "</div>" +"<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minusd'>" + "</div>";
 				
                 var artist = data.topartists.artist[i].name;
                 localStorage.setItem('artist'+i, artist);
-                
-                }       
+                }
 
         $(list + '</ol>').appendTo('#topartists');
+        $(but).appendTo('#sb');
          $('.loading').fadeOut();
         },
         
         error: function(data) {
-           alert(data.error + " " + data.message);
+           location.href='main.html';
+           localStorage.clear();
         }
     });
     
