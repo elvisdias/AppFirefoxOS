@@ -18,29 +18,27 @@ function search(){
                     if (search[i]){
                      reals.push(search[i]);
                 }       
-                 }        
+                 }      
+                 $(document).ready(function(){
+                  $('#plus').click(function(){
+                    var novo = document.forme.artist.value;                
+                        if (novo != "") {
+                           localStorage.setItem("artist"+(id+1), novo); 
+                             $("#lista").append("<div class='qualquer' id='"+(div+i)+"'>" + "<div onClick=location.href='artistinfo.html' class='diveText'> " + novo + "</div>" + "<div class='diveImg'>" + "<img src='pics/-.png' id='"+i+"' onClick='fade(this.id)' class='minus'>" + "</div>"+"</div>");      
+                             reals.push(novo);  
+                             novo.replace("");  
+                             id++;                                            
+                        };         
+                                        
+                });                       
+                });  
            
             for (var i = 0; i < reals.length; i++) {
                 
                 //list += "<div class='dive' id='"+(div+i)+"'>" + reals[i] +  "<img src='pics/-.png' id='"+(i)+"' onClick='fade(this.id)' class='minus'>" + "</div>";
-                list += "<div class='qualquer' id='"+(div+i)+"'>" + "<div onClick=location.href='artistinfo.html' class='diveText'> " + reals[i] + "</div>" + "<div class='diveImg'>" + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minus'>" + "</div>" + "</div>";
-               
-               
+                list += "<div class='qualquer' id='"+(div+i)+"'>" + "<div onClick=location.href='artistinfo.html' class='diveText'> " + reals[i] + "</div>" + "<div class='diveImg'>" + "<img src='pics/-.png' id='"+(img+i)+"' onClick='fade(this.id)' class='minus'>" + "</div>" + "</div>";         
                 }   
 
-                $(document).ready(function(){
-                  $('#plus').click(function(){
-                    var novo = document.forme.artist.value;                
-                        if (novo != "") {
-                           localStorage.setItem("artist"+id, novo); 
-                             $("#lista").append("<div class='qualquer' id='"+(div+i)+"'>" + "<div onClick=location.href='artistinfo.html' class='diveText'> " + novo + "</div>" + "<div class='diveImg'>" + "<img src='pics/-.png' id='"+i+"' onClick='fade(this.id)' class='minus'>" + "</div>"+"</div>");      
-                             id++; 
-                             reals.push(novo);  
-                             novo.replace(novo,"");                                               
-                        };         
-                                        
-                });                       
-                });
           $(list + '</ol>').appendTo('#listartists');
           $('.loading').fadeOut();
                 

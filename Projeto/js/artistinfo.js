@@ -9,15 +9,40 @@ var lastfm = new LastFM({
 lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
   success: function(data){
   
-
   var div2 = "<div>";
   var div3 = "<div>";
   var div4 = "<div id='dive4'>";
   var div = "<div>" +  data.artist.name + "</div>";
   var isLarge = false; 
   var vazio = "";
+  var dive;
+  var aa=0;
+  var nu;
+  var id=10
 
-  document.getElementById('artim').src = data.artist.image[3]['#text'];
+  for (var i = 0; i < localStorage.length; i++){
+    if (data.artist.name == localStorage.getItem("artist"+i)) {
+      nu = i;
+      aa++;
+    } else {}
+  }
+  if (aa == 1) {
+    dive = "<div id='mp'>" +  "<img src='pics/--.png'/>" + "<img src='pics/+.png' style='display:none'/>" +"</div>";
+    $(dive).appendTo('.home');
+    $(".home").click(function() {
+    $(this).find('img').toggle();
+    delete window.localStorage["artist"+nu];
+});
+  } else {
+    dive = "<div id='mp'>" +  "<img src='pics/+.png'/>" + "<img src='pics/--.png' style='display:none'/>" + "</div>";
+    $(dive).appendTo('.home');
+    $(".home").click(function() {
+    $(this).find('img').toggle();
+    localStorage.setItem('artist'+id,data.artist.name);   
+    id++
+});
+  }  
+    document.getElementById('artim').src = data.artist.image[3]['#text'];
 
   if (data.artist.bio) {
         var str =  data.artist.bio.content;
@@ -28,7 +53,7 @@ lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
 
   } else {
         div2 = "<div class='content'>" +  "No description for this album." + "</div>";
-        $('.content').css({"height":"auto"});       // ?
+        $('.content').css({"height":"auto"});      
    }    
   for (i=0; i<=4; i++){
   div4 += "<div class='similars'>" +  data.artist.similar.artist[i].name + "</div>";

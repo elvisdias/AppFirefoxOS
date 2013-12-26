@@ -22,6 +22,16 @@
     		location.href='home.html';
     	};
     })
+    $(document).ready(function(){
+    	localStorage.getItem("key");
+    	$('.notuser').click(function(){
+    		var notuser = 'random'
+    		localStorage.setItem("key", notuser);
+    		location.href='artists.html';
+
+    	})
+    		
+    	});
     function valida() {
     	var user = document.enter.user.value;
     	if (user == "") {

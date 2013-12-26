@@ -20,13 +20,12 @@ for(var i = 0; i < gettop.length; i++){
  }  
 */
 $(document).ready(function(){
-   for (var i = 0; i<localStorage.length; i++){
-       getTopAlbums(localStorage.getItem("artist"+i), 10); 
+   for (var i = 0; i <= localStorage.length; i++){
+       getTopAlbums(localStorage.getItem("artist"+i), 5); 
      }       
 });
 
 function getTopAlbums(artist, limit){
-   
     lastfm.artist.getTopAlbums({
         artist: artist,
         limit: limit
@@ -37,8 +36,7 @@ function getTopAlbums(artist, limit){
     var list = "<div>";  
     for (var i = 0; i < data.topalbums.album.length; i++) {                
     list += "<div class='diven'>" + "<div>" + "<img src='"+data.topalbums.album[i].image[0]['#text']+"'>" + "</div>" + "     " + "<span>" + data.topalbums.album[i].name + "</span>" + "</div>";        
-      var nome =  data.topalbums.album[i].artist.name
-    localStorage.setItem(nome, data.topalbums.album[i].name);
+      //var nome =  data.topalbums.album[i].artist.name
    }
 
   $(list + '</div>').appendTo('#topalbums');
@@ -55,38 +53,54 @@ $(document).ready(function(){
    $('.set').toggle(function() {
     $('.menu').show();
     $('body').css('overflow','hidden');
+
+    $('#topalbums').click(function() {
+    $('.menu').hide();
+  });
    }, function() {
     $('.menu').hide(); 
     $('body').css('overflow','auto');
    });
   });
-
-  $("#edit").hover(function(){
-  $(this).css("background-color","white");
-  $(this).css("color","black");
-}, 
-   function(){
-     $(this).css("color","white"); 
-     $(this).css("background-color","#CD2626");
-    });
-
-  $("#edit").click(function(){
+});
+$(document).ready(function(){
+  $('.menu').hide();
+  $(function() {
+   $('#').toggle(function() {
+    $('.menu').show();
+    $('body').css('overflow','hidden');
+   }, function() {
+    $('.menu').hide(); 
+    $('body').css('overflow','auto');
+   });
+  });
+$("#edit").click(function(){
     location.href='artists.html';
   })
 
+  $("#edit").hover(function(){
+  $(this).css("background-color", "#EEE9E9");
+  $(this).css("color","black");
+}, 
+   function(){
+     $(this).css("color","black"); 
+     $(this).css("background-color","white");
+    });
+
+  
   $("#logout").hover(function(){
-  $(this).css("background-color","white");
+  $(this).css("background-color","#EEE9E9");
   $(this).css("color","black");
   },
   function(){
-     $(this).css("color","white"); 
-     $(this).css("background-color","#CD2626");
+     $(this).css("color","black"); 
+     $(this).css("background-color","white");
     });  
+
   $("#logout").click(function(){
      if (confirm('Are you sure you want to log out?')) {
   location.href='main.html';
   localStorage.clear();
 } else {}
   })
-
 });
