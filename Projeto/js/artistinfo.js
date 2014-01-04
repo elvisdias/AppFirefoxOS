@@ -39,6 +39,7 @@ lastfm.artist.getInfo({artist: localStorage.getItem("artcli")}, {
     $(".home").click(function() {
     $(this).find('img').toggle();
     localStorage.setItem('artist'+id,data.artist.name);   
+    localStorage.setItem("id", (parseInt(localStorage.getItem("id")))+1);  
     id++
 });
   }  

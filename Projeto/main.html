@@ -11,38 +11,35 @@
 	<script type="text/javascript" src="js/lib/lastfm/lastfm.api.cache.js"></script>
     <script type="text/javascript" src="js/lib/lastfm/lastfm.api.js"></script>
     <script type="text/javascript" src="js/lib/lastfm/lastfm.api.md5.js"></script>    
-
-    <link href="css/transition.css" rel="stylesheet" type="text/css"/>
-	<script type="text/javascript" src="js/lib/fasw.transitions.min.js"></script>
            
     <script type="text/javascript">
-    $(document).ready(function(){
-    	var us = localStorage.getItem("key");
-    	if (us) {
-    		location.href='home.html';
-    	};
+     $(document).ready(function(){
+            var us = localStorage.getItem("key");
+            if (us) {
+                    location.href='home.html';
+            };
     })
-    $(document).ready(function(){
+      $(document).ready(function(){
     	localStorage.getItem("key");
     	$('.notuser').click(function(){
     		var notuser = 'random'
     		localStorage.setItem("key", notuser);
     		location.href='artists.html';
-
     	})
     		
     	});
-    function valida() {
-    	var user = document.enter.user.value;
-    	if (user == "") {
-    		alert("Informe usuário!");
-    		enter.user.focus();
-    		return false;
-    	} else {    		
-		    localStorage.setItem("key", user);
-	    	location.href='topartists.html';
-	    	//return true;
-    	};
+    
+     function valida() {
+        var user = document.enter.user.value;
+        if (user == "") {
+            alert("Informe usuário!");
+            enter.user.focus();
+            return false;
+        } else {            
+            localStorage.setItem("key", user);
+            location.href='topartists.html';
+            return true;
+        };
 
     }
     </script>

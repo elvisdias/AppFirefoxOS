@@ -45,7 +45,7 @@ function getTopArtists(user, limit){
     });
     
 }
-
+var id =0;
 function fade(id) {
     
     var element = document.getElementById(id);
@@ -54,25 +54,23 @@ function fade(id) {
 $('.dive').each(function() {
   arr.push($(this).text());
 });
-       
+    
     $(document).ready(function(){
     $(element).toggle(
         function a(){
         $(element).fadeTo("fast", 0.5, function(){
-            $("<img>").prop('src', 'pics/+.png')
+            $("<img id='maix"+id+"'>").prop('src', 'pics/+.gif')
             .appendTo(element)
             .addClass("minus2"); 
-            delete window.localStorage["artist"+id];
+            delete window.localStorage["artist"+id]
         })
     },
         function b(){
         $(element).fadeTo("fast", 1, function(){
-            $(".minus2 ").remove();
+            $("#maix"+id+"").remove();
             localStorage.setItem('artist'+id,arr[id]);   
-
         })
+    });    
     });
-
-    });
-
     }
+id++;

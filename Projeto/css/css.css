@@ -64,7 +64,7 @@ body {
 }
 .notuser{
   position: relative;
-  top: 200px;
+  top: 190px;
   left: 18px;
   color: white;
 }
@@ -217,8 +217,8 @@ top: 11px;
 
 .minus {
 position: absolute;
-left: 16px;
-top: 11px;
+left: 17px;
+top: 12px;
 }
 
 .minus2 {
@@ -243,10 +243,13 @@ top: -86px;
 }
 
 /*  HOME  */
+
 #topalbums{
   position: relative;
   top: -40px;
+  left: 3px;
 }
+
 .dive2{
   background-color: white;
   border-radius: 4px; 
@@ -263,7 +266,7 @@ top: -86px;
 
 .home {
   position: absolute;
-  left: 255px;
+  left: 260px;
   top: 11px;
 }
 
@@ -275,7 +278,7 @@ top: -86px;
 
 .back{
   position: absolute;
-  left: 0px;
+  left: 5px;
   top: 8px;
 }
 
@@ -291,11 +294,13 @@ top: -86px;
 #artim{
   position: relative;
   top: 23px;
+  left: 7px;
 }
 
 .artists {
   position: relative;
   top: 35px;
+  left: 3px;
 }
 
 .add{
@@ -378,16 +383,15 @@ top: -86px;
 #titlen{
   position: relative;
   top: 10px;
-  left: 40px;
+  left: 46px;
   width: 210px;
   height: auto; 
-  text-align: center;
 }
 
 #mp {
   position: relative;
   top: 10px;
-  left: -10px;
+  left: 0px;
 }
 
 .content {
@@ -428,7 +432,7 @@ top: -86px;
 #link{
 position: relative;
 bottom: 25px;
-left: 65px;
+left: 120px;
 }
 
 .albumss {
@@ -449,7 +453,9 @@ left: 65px;
 #albim{
   position: relative;
   top: 23px;
+  left: 7px;
 }
+
 .trackss{
   padding-top: 4px;
   padding-bottom: 4px;
