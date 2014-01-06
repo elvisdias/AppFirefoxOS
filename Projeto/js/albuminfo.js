@@ -31,7 +31,7 @@ lastfm.album.getInfo({artist: localStorage.getItem("artcli"), album: localStorag
         div4 = "<div class='more'>" +  "Show more" + "</div>";
 
       } else {
-       div2 = "<div class='content' style='height:30px;'>" +  "No description for this album." + "</div>";       // ?
+       div2 = "<div class='content' style='height:30px;'>" +  "No description for this album." + "</div>";      
       }        
 
       for(i=0; i<data.album.tracks.track.length; i++){
