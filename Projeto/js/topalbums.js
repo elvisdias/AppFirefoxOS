@@ -6,13 +6,16 @@ var lastfm = new LastFM({
     cache     : cache
 });
 
-var artist = [];
-var tam = localStorage.length -3;
+var albums = [];
+//var tam = localStorage.length -3;
 
 $(document).ready(function(){
-    for (var i = 0; i <= tam; i++){
-       getTopAlbums(localStorage.getItem("artist"+i), 7);          
-}}) 
+ for (var i = 0; i <= localStorage.length; i++){
+  if (localStorage.getItem("artist"+i) != null) {
+  getTopAlbums(localStorage.getItem("artist"+i), 7);
+  };                 
+}
+}) 
 
 function getTopAlbums(artist, limit){
     lastfm.artist.getTopAlbums({
@@ -21,26 +24,31 @@ function getTopAlbums(artist, limit){
     },
     {
      success: function(data){  
+
     /*var list = "<div>";  
 
     for (var i = 0; i < tam; i++) {                
     
     list += "<div class='diven'>" + "<div>" + "<img src='"+ data.topalbums.album[i].image[0]['#text']+"'>" + "</div>" + "     " + "<span>" + data.topalbums.album[i].name + "</span>" + "</div>";            
-        
-      }*/
-        artist = [data.topalbums.album[0].name, data.topalbums.album[1].name, data.topalbums.album[2].name, data.topalbums.album[3].name, data.topalbums.album[4].name, data.topalbums.album[5].name,data.topalbums.album[6].name];
-        localStorage.setItem("arr", artist);
-        
-  //$(list + '</div>').appendTo('#topalbums');
-  //$('.loading').fadeOut();
+    }    
+    
+    $(list + '</div>').appendTo('#topalbums');
+    $('.loading').fadeOut(); */
 
-for (var i = 0; i <= tam; i++){    
-for (var e = 0; e < 5; e++){
+      for (var i = 0; i < data.topalbums.album.length ; i++) {
+        var albumName = data.topalbums.album[i].name
+        albums[i] = albumName
+      } 
 
-lastfm.album.getInfo({artist: localStorage.getItem("artist"+i), album: artist[e]}, {
+for (var i = 0; i < localStorage.length; i++){    
+for (var e = 0; e < data.topalbums.album.length; e++){
+
+if (localStorage.getItem("artist"+i) != null && albums[e] != null){
+
+lastfm.album.getInfo({artist: localStorage.getItem("artist"+i), album: albums[e]}, {
   success: function(data){
 
-    var list = "<div>";  
+   var list = "<div>";  
    var datee = data.album.releasedate; 
    var y = "2013";
    var a = new RegExp('\\b' + y + '\\b');
@@ -49,15 +57,15 @@ lastfm.album.getInfo({artist: localStorage.getItem("artist"+i), album: artist[e]
     
     list += "<div class='diven'>" + "<div>" + "<img src='"+ data.album.image[0]['#text']+"'>" + "</div>" + "<span>" + data.album.name + "</span>" + "</div>";        
   
+  localStorage.setItem(data.album.name, data.album.artist); 
+
     $(list + '</div>').appendTo('#topalbums');
     $('.loading').fadeOut();
+    } 
 
-    localStorage.setItem(data.album.name, data.album.artist); 
-
-    } else {}
      $(document).ready(function(){
       $('.diven').click(function(){
-        location.href='albuminfo.html';
+        location.href='albuminfoo.html';
         localStorage.setItem("albcli", $(this).text());    
         var abb = localStorage.getItem("albcli");
         var e = localStorage.getItem(abb);
@@ -65,56 +73,16 @@ lastfm.album.getInfo({artist: localStorage.getItem("artist"+i), album: artist[e]
        })
     })   
 
-  console.log(a.test(datee));
-  console.log(datee);
+  //console.log(a.test(datee));
+  //console.log(datee);
 }, error: function(data){
-  alert(data.error + " " + data.message);  
 }});
-  }}
+  }}}
 
 }, error: function(data){
   alert(data.error + " " + data.message);
 }});
-}
-/*
-var pf = new Array();
-$(document).ready(function(){
-    for (var i = 0; i <= tam; i++){
-       for (var e = 0; e < 5; e++){
-        pf = localStorage.getItem("arr").split(',');
-        getInfo(localStorage.getItem("artist"+i), pf[e]); 
-         }
-}});
-
-function getInfo(artist, album){
-    lastfm.album.getInfo({
-        artist: artist,
-        album: album
-    },
-    {  success: function(data){
-   var list = "<div>";  
-   var datee = data.album.releasedate; 
-   var y = "2013";
-   var a = new RegExp('\\b' + y + '\\b');
-
-    if(a.test(datee)) {
-    
-    list += "<div class='diven'>" + "<div>" + "<img src='"+ data.album.image[0]['#text']+"'>" + "</div>" + "     " + "<span>" + data.album.name + "</span>" + "</div>";        
-  
-    $(list + '</div>').appendTo('#topalbums');
-    $('.loading').fadeOut();
-    } else {}
-
-  console.log(a.test(datee));
-  console.log(datee);
-}, error: function(data){
-  alert(data.error + " " + data.message);  
-}});
-  }*/
-
- 
-
-  
+}  
 
 $(document).ready(function(){
   $('.menu').hide();

@@ -39,8 +39,7 @@ function search(){
                 }
 
           $(list + '</ol>').appendTo('#listartists');
-          $('.loading').fadeOut();
-
+          
             $('.qualquer').last().remove();
              
             $(document).ready(function(){

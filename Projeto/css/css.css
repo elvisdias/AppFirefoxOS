@@ -65,7 +65,7 @@ body {
 .notuser{
   position: relative;
   top: 190px;
-  left: 18px;
+  left: 35px;
   color: white;
 }
 
@@ -117,8 +117,6 @@ a[role="button"],
   height: 23px;
 }
 
-
-
 /*  LIST  */
 
 #ant{
@@ -131,9 +129,9 @@ a[role="button"],
   position: relative;
   top: 25px;
   left: 35px;
-  width: 10px;
+  width: 7px;
   height: 25px;
-
+  text-align: center;
 }
 
 .search {

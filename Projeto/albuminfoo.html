@@ -1,0 +1,50 @@
+<html>
+   <head>
+   
+   <link rel="stylesheet" href="css/fonts.css">
+   <link rel="stylesheet" href="css/css.css">   
+   
+   <script type="text/javascript" src="js/lib/jquery/jquery-1.8.3.js"></script>
+   <script type="text/javascript" src="js/lib/lastfm/lastfm.api.cache.js"></script>
+    <script type="text/javascript" src="js/lib/lastfm/lastfm.api.js"></script>
+    <script type="text/javascript" src="js/lib/lastfm/lastfm.api.md5.js"></script>    
+    <script type="text/javascript" src="js/albuminfo.js"></script>
+
+   <title>Album Info</title> 
+
+   </head>
+   
+    <body style='background-color: #CD2626;'>
+
+
+  <div class="loading">
+    <!-- We make this div spin -->
+    <div class="spinner">
+        <!-- Mask of the quarter of circle -->
+        <div class="mask">
+            <!-- Inner masked circle -->
+            <div class="maskedCircle"></div>
+        </div>
+    </div>
+</div>
+
+<div class='titlename'>
+  <div id='titlen'></div>
+  <div><img class='back' onClick="location.href='home.html'"src='pics/back.gif'></div>
+  <div><img id='albim' src=''></div>
+  </div>
+  </br> 
+
+  <div id='albuminfo'></div>
+  
+  </br></br></br>
+  
+    <div id='links'>
+    <div class='buy'>Search it here: </div>
+  </div>
+  <div id='tracks'>    
+    <div id='similar'>Tracks:</div></br>
+  </div></br>
+
+  </body>
+</html>
