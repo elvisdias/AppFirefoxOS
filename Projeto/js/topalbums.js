@@ -6,9 +6,12 @@ var lastfm = new LastFM({
     cache     : cache
 });
 
-var albums = [];
-//var tam = localStorage.length -3;
 
+//var tam = localStorage.length -3;
+console.log(localStorage.length);
+if(localStorage.length > 2) {
+
+var albums = [];
 $(document).ready(function(){
  for (var i = 0; i <= localStorage.length; i++){
   if (localStorage.getItem("artist"+i) != null) {
@@ -61,6 +64,7 @@ lastfm.album.getInfo({artist: localStorage.getItem("artist"+i), album: albums[e]
 
     $(list + '</div>').appendTo('#topalbums');
     $('.loading').fadeOut();
+
     } 
 
      $(document).ready(function(){
@@ -76,13 +80,34 @@ lastfm.album.getInfo({artist: localStorage.getItem("artist"+i), album: albums[e]
   //console.log(a.test(datee));
   //console.log(datee);
 }, error: function(data){
+
 }});
   }}}
 
 }, error: function(data){
   alert(data.error + " " + data.message);
 }});
-}  
+}
+
+} else {
+  $(document).ready(function(){
+    
+    $("<p id='pp'>" + "No news by now" + "</p>").appendTo('#topalbums')
+    
+      $('.loading').fadeOut();
+    })
+    
+}
+
+if( $('#topalbums').is(':empty') ) {
+  $(document).ready(function(){
+    
+    $("<p id='pp'>" + "No news by now" + "</p>").appendTo('#topalbums')
+    
+      $('.loading').fadeOut();
+    })
+}
+  
 
 $(document).ready(function(){
   $('.menu').hide();

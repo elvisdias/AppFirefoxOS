@@ -262,6 +262,14 @@ top: -86px;
   line-height:2em;
 }
 
+#pp {
+  position: relative;
+  top: 50px;
+  color: #D3D3D3;
+  font-size: 17px;
+  text-align: center;
+}
+
 .home {
   position: absolute;
   left: 260px;
