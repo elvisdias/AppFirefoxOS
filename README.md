@@ -1,6 +1,6 @@
 project
 =======
-##Firefox OS app
+## Firefox OS app
 
 For the conclusion of the technical course, I was introduced to the mobile plataform called Firefox OS for developing an app.
 
